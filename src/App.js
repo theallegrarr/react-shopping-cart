@@ -12,14 +12,30 @@ import ShoppingCart from './components/ShoppingCart';
 function App() {
 	const [products] = useState(data);
 	const [cart, setCart] = useState([]);
+	const [localCart, updateCart] = useState([]);
+
+	const getLocal = () => {
+		const data = (localStorage.getItem('cart'));
+	
+		return data;
+	}
+
+	// if(getLocal()){
+	// 	setCart(getLocal());
+	// 	updateCart(getLocal());
+	// }
 
 	const addItem = item => {
 		setCart([...cart, item]);
+		updateCart([...localCart, item]);
+		// localStorage.setItem('cart', localCart);
 	};
 
 	const removeItem = item => {
-		console.log(item);
+		//console.log(item);
 		setCart(cart.filter(product => product.id !== item));
+		updateCart(localCart.filter(product => product.id !== item));
+		// localStorage.set('cart', localCart);
 	};
 
 	return (
