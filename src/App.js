@@ -22,7 +22,7 @@ function App() {
 
 	const addItem = item => {
 		setCart([...cart, item]);
-		updateCart([...localCart, item]);\
+		updateCart([...localCart, item]);
 	};
 
 	const removeItem = item => {
