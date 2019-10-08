@@ -20,22 +20,14 @@ function App() {
 		return data;
 	}
 
-	// if(getLocal()){
-	// 	setCart(getLocal());
-	// 	updateCart(getLocal());
-	// }
-
 	const addItem = item => {
 		setCart([...cart, item]);
-		updateCart([...localCart, item]);
-		// localStorage.setItem('cart', localCart);
+		updateCart([...localCart, item]);\
 	};
 
 	const removeItem = item => {
-		//console.log(item);
 		setCart(cart.filter(product => product.id !== item));
 		updateCart(localCart.filter(product => product.id !== item));
-		// localStorage.set('cart', localCart);
 	};
 
 	return (
